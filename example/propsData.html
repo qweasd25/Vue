@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>18.propsData Option 全局扩展的数据传递</title>
     <script src="../assets/js/vue.js"></script>
 </head>
+
 <body>
     <h1>propsData Option 全局扩展的数据传递</h1>
     <hr>
@@ -14,16 +16,17 @@
 
     <script>
         let header_a = Vue.extend({
-            template:`<p>{{message}}-{{a}}</p>`,
-            data:function(){
+            template: `<p>{{message}}-{{a}}</p>`,
+            data: function () {
                 return {
                     message: 'Hello, I am header!'
                 };
             },
-            props:['a']
+            props: ['a']
         });
         // 挂载到html上,propsData在项目开发中扩展不是很常用
-        new header_a({propsData:{a:1}}).$mount('header');
+        new header_a({ propsData: { a: 1 } }).$mount('header');
     </script>
 </body>
+
 </html>

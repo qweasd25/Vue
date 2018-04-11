@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,17 @@
     <title>v-bind 实例</title>
     <script src="../assets/js/vue.js"></script>
 </head>
+
 <body>
     <h1>v-bind 实例</h1>
     <hr>
     <div id="app">
-        <p><img v-bind:src="imgSrc" width="200px" /></p>
-        <p><a :href="webUrl" target="_blank">技术胖</a></p>
+        <p>
+            <img v-bind:src="imgSrc" width="200px" />
+        </p>
+        <p>
+            <a :href="webUrl" target="_blank">技术胖</a>
+        </p>
         <hr>
         <div :class="className">1、绑定Class</div>
         <div :class="{classA:isOk}">2、绑定Class中的判断</div>
@@ -25,31 +31,33 @@
         <div :style="styleObject">6.用对象绑定style</div>
     </div>
     <style>
-        .classA{
+        .classA {
             color: red;
         }
-        .classB{
+
+        .classB {
             font-size: 150%;
         }
     </style>
     <script>
         var app = new Vue({
-            el:"#app",
-            data:{
-                imgSrc:'../image/zjlogo.png',
-                webUrl:'http://jspang.com',
-                className:"classA",
-                isOk:false,
-                classA:'classB',
-                classB:'classA',
-                red:"red",
-                font:"150%",
-                styleObject:{
-                    fontSize:'30px',
-                    color:'yello'
+            el: "#app",
+            data: {
+                imgSrc: '../image/zjlogo.png',
+                webUrl: 'http://jspang.com',
+                className: "classA",
+                isOk: false,
+                classA: 'classB',
+                classB: 'classA',
+                red: "red",
+                font: "150%",
+                styleObject: {
+                    fontSize: '30px',
+                    color: 'yello'
                 }
             }
         })
     </script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>Computed Option 计算选项</title>
     <script src="../assets/js/vue.js"></script>
 </head>
+
 <body>
     <h1>Computed Option 计算选项</h1>
     <hr>
@@ -19,26 +21,27 @@
 
     <script>
         let newsList = [
-            {title:'记习近平主席2018年博鳌亚洲论坛演讲',date:'2018/4/11'},
-            {title:'习近平在博鳌亚洲论坛年会开幕式上的演讲( 完整版)',date:'2018/4/12'},
-            {title:'习近平会见新加坡总理 巴基斯坦总理  致贺信',date:'2018/4/13'},
-            {title:'习近平主席主旨演讲引发热烈反响  博鳌亚洲论坛',date:'2018/4/14'}
-            ];
+            { title: '记习近平主席2018年博鳌亚洲论坛演讲', date: '2018/4/11' },
+            { title: '习近平在博鳌亚洲论坛年会开幕式上的演讲( 完整版)', date: '2018/4/12' },
+            { title: '习近平会见新加坡总理 巴基斯坦总理  致贺信', date: '2018/4/13' },
+            { title: '习近平主席主旨演讲引发热烈反响  博鳌亚洲论坛', date: '2018/4/14' }
+        ];
         let app = new Vue({
-            el:"#app",
-            data:{
-                price:100,
-                newsList:newsList
+            el: "#app",
+            data: {
+                price: 100,
+                newsList: newsList
             },
-            computed:{
-                newPrice:function(){
-                    return this.price='￥'+ this.price + '元';
+            computed: {
+                newPrice: function () {
+                    return this.price = '￥' + this.price + '元';
                 },
-                reverseNews:function(){
-                    return this.newsList.reverse(); 
+                reverseNews: function () {
+                    return this.newsList.reverse();
                 }
             }
         })
     </script>
 </body>
+
 </html>

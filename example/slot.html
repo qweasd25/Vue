@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>内置组件 -slot讲解</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>内置组件 -slot讲解</h1>
+    <hr>
+    <div id="app">
+        <vuezj>
+            <span slot="webUrl">{{vuezjData.webUrl}}</span>
+            <span slot="netName">{{vuezjData.netName}}</span>
+            <span slot="skill">{{vuezjData.skill}}</span>
+        </vuezj>
+    </div>
+
+    <template id="tep">
+        <div>
+            <p>网址：<slot name="webUrl"></slot></p>
+            <p>名称：<slot name="netName"></slot></p>
+            <p>用途：<slot name="skill"></slot></p> 
+        </div>
+    </template>
+    <script>
+        var vuezj = {
+            template:"#tep"
+        }
+        var app = new Vue({
+            el: "#app",
+            data: {
+                vuezjData:{
+                    webUrl:'http://www.baidu.com',
+                    netName:'百度',
+                    skill:'搜索'
+                }
+            },
+            components:{
+                'vuezj':vuezj
+            }
+        })
+    </script>
+</body>
+
+</html>

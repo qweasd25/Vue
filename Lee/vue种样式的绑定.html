@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue中样式的绑定</title>
+    <script src="../assets/js/vue.js"></script>
+    <style>
+        .activated{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id="app">
+        <div @click="handleDivClick"
+             :class="{activated: isActivated}">Hello World</div>
+    </div> -->
+    <div id="app">
+        <div @click="handleDivClick"
+            :class="[activated]">Hello World</div>
+    </div> 
+
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                // isActivated :false
+                activated: ""
+            },
+            methods: {
+                handleDivClick: function(){
+                    // this.isActivated = !this.isActivated;
+                    this.activated = this.activated === "activated" ? "" : "activated"
+                }
+            }
+        })
+    </script>
+</body>
+</html>

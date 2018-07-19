@@ -6,20 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>vue中样式的绑定</title>
     <script src="../assets/js/vue.js"></script>
-    <style>
+    <!-- <style>
         .activated{
             color: red;
         }
-    </style>
+    </style> -->
 </head>
 <body>
     <!-- <div id="app">
         <div @click="handleDivClick"
              :class="{activated: isActivated}">Hello World</div>
     </div> -->
+    <!-- <div id="app">
+        <div @click="handleDivClick"
+            :class="[activated,activatedOne]">Hello World</div>
+    </div>  -->
+
     <div id="app">
         <div @click="handleDivClick"
-            :class="[activated]">Hello World</div>
+            :style="[styleObj,{fontSize: '20px'}]">Hello World</div>
     </div> 
 
     <script>
@@ -27,12 +32,17 @@
             el: "#app",
             data: {
                 // isActivated :false
-                activated: ""
+                // activated: "",
+                // activatedOne: "activated-one"
+                styleObj: {
+                    color: "black"
+                }
             },
             methods: {
                 handleDivClick: function(){
                     // this.isActivated = !this.isActivated;
-                    this.activated = this.activated === "activated" ? "" : "activated"
+                    // this.activated = this.activated === "activated" ? "" : "activated"
+                    this.styleObj.color = this.styleObj.color === "red" ? "black" : "red"
                 }
             }
         })

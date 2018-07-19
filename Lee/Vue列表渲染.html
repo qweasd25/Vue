@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue中的列表渲染</title>
+    <script src="../assets/js/vue.js"></script>
+<body>
+    <div id="app">
+        <!-- <template  v-for="(item,index) of list" :key="item.id">
+            <div>
+                {{item.text}} ---- {{index}}
+            </div>
+            <span>{{item.text}}</span>
+        </template> -->
+        <div v-for="(item, key, index) of userInfo">
+            {{item}} ---- {{key}} ---- {{index}}
+        </div>
+    </div>
+
+    <script>
+        // 数组 push pop shift unshift splice short reverse
+        // vm.list.splice(1,1,{id:"333",text:"wang"})
+        // 对象 set方法
+        // Vue.set(vm.userInfo,"adress","hangzhou")
+        // vm.$set(vm.userInfo,"parent","both")
+        var vm = new Vue({
+            el: "#app",
+            // data: {
+            //     list: [{
+            //         id: "0101",
+            //         text: "hello"
+            //     },{
+            //         id: "0102",
+            //         text: "jerry"
+            //     },{
+            //         id: "0103",
+            //         text: "nice"
+            //     },{
+            //         id: "0104",
+            //         text: "to"
+            //     },{
+            //         id: "0105",
+            //         text: "meet"
+            //     },{
+            //         id: "0106",
+            //         text: "you"
+            //     }]
+            // }
+            data: {
+                userInfo: {
+                    name: "Dell",
+                    age: "28",
+                    gender: "male",
+                    salary: "secret"
+                }
+            }
+        })
+    </script>
+</body>
+</html>

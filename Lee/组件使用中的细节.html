@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件使用中过得细节点</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- 1
+        <table>
+            <tbody>
+                <tr is="row"></tr>
+                <tr is="row"></tr>
+                <tr is="row"></tr>
+                <tr is="row"></tr>
+            </tbody>
+        </table> -->
+        <!-- 2
+        <div ref="hello" @click="handleClick">hello world</div> -->
+        <div id="root">
+            <counter ref="one" @change="handleChange"></counter>
+            <counter ref="two" @change="handleChange"></counter>
+            <div>{{total}}</div>
+        </div>
+    </div>
+
+    <script>
+        //1.
+        // Vue.component('row',{
+        //     // 独立数据存储
+        //     data: function(){
+        //         return {
+        //             content: 'this is a row'
+        //         }
+        //     },
+        //     template: '<tr><td>{{content}}</td></tr>'
+        // })
+        // 2.
+        // var vm = new Vue({
+        //     el: "#root",
+        //     methods: {
+        //         handleClick: function(){
+        //             console.log(this.$refs.hello.innerHTML);
+        //         }
+        //     }
+        // })
+        // 3
+        Vue.component('counter',{
+            template: '<div @click="handleClick">{{number}}</div>',
+            data: function(){
+                return {
+                    number: 0
+                }
+            },
+            methods: {
+                handleClick: function(){
+                    this.num ++
+                    this.emit('change')
+                }
+            }
+        })
+
+        var vm = new Vue({
+            el: "root",
+            data: {
+                total: 0
+            },
+            methods: {
+                handleChange: function(){
+                    this.total = this.$ref.one.number + this.$ref.two.number
+                }
+            }
+            
+        })
+
+    </script>
+</body>
+</html>

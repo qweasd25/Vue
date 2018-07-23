@@ -20,11 +20,11 @@
         </table> -->
         <!-- 2
         <div ref="hello" @click="handleClick">hello world</div> -->
-        <div id="root">
-            <counter ref="one" @change="handleChange"></counter>
-            <counter ref="two" @change="handleChange"></counter>
-            <div>{{total}}</div>
-        </div>
+        
+        <counter ref="one" @change="handleChange"></counter>
+        <counter ref="two" @change="handleChange"></counter>
+        <div>{{total}}</div>
+        
     </div>
 
     <script>
@@ -57,20 +57,20 @@
             },
             methods: {
                 handleClick: function(){
-                    this.num ++
-                    this.emit('change')
+                    this.number ++
+                    this.$emit('change')
                 }
             }
         })
 
         var vm = new Vue({
-            el: "root",
+            el: "#root",
             data: {
                 total: 0
             },
             methods: {
                 handleChange: function(){
-                    this.total = this.$ref.one.number + this.$ref.two.number
+                    this.total = this.$refs.one.number + this.$refs.two.number
                 }
             }
             

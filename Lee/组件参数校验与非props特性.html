@@ -9,13 +9,21 @@
 </head>
 <body>
     <div id="root">
-        <child :content="{1213:1}"></child>
+        <child content="hello world"></child>
     </div>
 
     <script>
         Vue.component('child', {
             props: {
-                content: [ Number, String]
+                // 
+                content: {
+                    type: String,
+                    required: true, // content 必传
+                    default: 'dafault value',
+                    validator: function(value){
+                        return (value.length > 5)
+                    }
+                }
             },
             template: '<div>{{content}}</div>'
         })

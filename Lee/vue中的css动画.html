@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue中的css动画</title>
+  <script src="../assets/js/vue.js"></script>
+  <style>
+    .v-enter,
+    .v-leave-to{
+      opacity: 0;
+    }
+    .v-enter-active,
+    .v-leave-active{
+      transition: opacity 3s;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <transition>
+      <div v-if="show">hello world</div>
+    </transition>
+    <button @click="handleClick">切换</button>
+  </div>
+</body>
+<script>
+  var vm = new Vue({
+    el: '#root',
+    data: {
+      show: true
+    },
+    methods: {
+      handleClick: function(){
+        this.show = this.show === true ? false : true;
+      }
+    }
+  })
+</script>
+</html>

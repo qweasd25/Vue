@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>在vue中同时使用过度和动画</title>
+  <script src="../assets/js/vue.js"></script>
+  <link rel="stylesheet" href="../assets/css/animate.css">
+  <style>
+    .fade-enter,
+    .fade-leave-to {
+      opacity: 0;
+    }
+    .fade-enter-active,
+    .fade-leave-active {
+      transition: opacity 3s;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <transition 
+      type="transition"
+      name="fade"
+      appear 
+      enter-active-class="animated swing fade-enter-active" 
+      leave-active-class="animated shake fade-leave-active"
+      appear-active-class="animated swing"
+      >
+      <div v-if="show">hello world</div>
+    </transition>
+    <button @click="handleClick">切换</button>
+  </div>
+</body>
+<script>
+  var vm = new Vue({
+    el: '#root',
+    data: {
+      show: true
+    },
+    methods: {
+      handleClick: function(){
+        this.show = this.show === true ? false : true;
+      }
+    }
+  })
+</script>
+</html>
